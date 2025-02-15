@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<header>
+    <h1>My Portfolio</h1>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button id="dark-mode-toggle">🌙</button></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="hero">
+    <h2>Welcome to My Portfolio</h2>
+    <p>I'm a software developer passionate about building great applications.</p>
+</section>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>I am Nkweatu Kennedy, a software developer and also the CEO of NKC.Tech.
+    <br> I build Mobile Apps, Desktop Apps and Web apps.
+        <br>I am passionate about programming which gives me the
+        opportunity to bring my clients dream to life.
+    </p>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <div id="projects-container"></div>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+    <p id="form-message" style="display:none; color: green;">Message sent successfully!</p>
+</section>
+
+<script src="script.js"></script>
+<section>
+<p> You can send a mail directly to nkweatukennedy@gmail.com</p>
+</section>
+</body>
+</html>
