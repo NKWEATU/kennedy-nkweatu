@@ -29,7 +29,7 @@
         {
             title: "School Application Portal",
             description: "A short description of Project One.",
-            image: "project1.jpg",
+            image: "savedStudents.png",
             liveDemo: "http://localhost:8080/students/new",
             github: "https://github.com/NKWEATU/Web-based-student-management-system-project"
         },
