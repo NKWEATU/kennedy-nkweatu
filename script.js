@@ -4,6 +4,22 @@
         document.body.classList.toggle("dark-mode");
     });
 
+     document.addEventListener("DOMContentLoaded", function () {
+    let text = document.getElementById("movingText");
+    text.innerHTML = " Welcome to My Awesome Website! stay tuned for more update guys!"; // Add the text dynamically
+
+    let position = window.innerWidth;
+    function moveText() {
+        position--;
+        if (position < -text.offsetWidth) {
+            position = window.innerWidth;
+        }
+        text.style.left = position + "px";
+        requestAnimationFrame(moveText);
+    }
+
+    moveText();
+});
     // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
