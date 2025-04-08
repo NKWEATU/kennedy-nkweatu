@@ -28,7 +28,8 @@
     const projects = [
         {
             title: "School Application Portal",
-            description: "A short description of Project One.",
+            description: "This is a simple student web application that allows the registeration of new students into a database (mysql).",
+                    
             image: "studentApplicationPortal.png",
             liveDemo: "https://www.linkedin.com/feed/update/urn:li:activity:7315305093745037312/",
             github: "https://github.com/NKWEATU/Web-based-student-management-system-project"
