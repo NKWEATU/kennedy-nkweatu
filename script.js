@@ -38,7 +38,7 @@
             title: "Hotel Management System",
             description: "This is a software that allows the daily tracking of the activities in a hotel.",
             image: "savedStudents.png",
-            liveDemo: "http://localhost:8080/login",
+            liveDemo: "https://www.linkedin.com/feed/update/urn:li:activity:7315353445169790977/",
             github: "https://github.com/NKWEATU/Complete-Hotel-Management-System-project.-Using-Java-and-mysql"
         }
     ];
