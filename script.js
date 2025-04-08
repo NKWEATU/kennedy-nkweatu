@@ -30,7 +30,7 @@
             title: "School Application Portal",
             description: "A short description of Project One.",
             image: "studentApplicationPortal.png",
-            liveDemo: "http://localhost:8080/students/new",
+            liveDemo: "https://www.linkedin.com/feed/update/urn:li:activity:7315305093745037312/",
             github: "https://github.com/NKWEATU/Web-based-student-management-system-project"
         },
         {
