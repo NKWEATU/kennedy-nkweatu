@@ -35,11 +35,11 @@
             github: "https://github.com/NKWEATU/Web-based-student-management-system-project"
         },
         {
-            title: "Login Registeration Portal",
-            description: "A short description of Project Two.",
+            title: "Hotel Management System",
+            description: "This is a software that allows the daily tracking of the activities in a hotel.",
             image: "savedStudents.png",
             liveDemo: "http://localhost:8080/login",
-            github: "https://github.com/NKWEATU/Web-Based-Login-Registration-System"
+            github: "https://github.com/NKWEATU/Complete-Hotel-Management-System-project.-Using-Java-and-mysql"
         }
     ];
 
