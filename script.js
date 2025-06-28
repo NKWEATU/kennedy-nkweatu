@@ -30,7 +30,7 @@
             title: "Quiz App",
             description: "This is a simple online quiz app.",
             image: "",
-            liveDemo: "https://nkweatu.github.io/Quiz_App/http://localhost:63342/Quiz_APP/index.html?_ijt=a3tk9fh9av6lgf2fp6e9cuiaf8&_ij_reload=RELOAD_ON_SAVE",
+            liveDemo: "https://nkweatu.github.io/Quiz_App/",
             github: "https://github.com/NKWEATU/Quiz_App"
         },
         {
