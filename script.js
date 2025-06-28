@@ -40,6 +40,13 @@
             image: "savedStudents.png",
             liveDemo: "https://www.linkedin.com/feed/update/urn:li:activity:7315353445169790977/",
             github: "https://github.com/NKWEATU/Complete-Hotel-Management-System-project.-Using-Java-and-mysql"
+        },
+         {
+            title: "Quiz App",
+            description: "This is a simple online quiz app.",
+            image: "",
+            liveDemo: "http://localhost:63342/Quiz_APP/index.html?_ijt=a3tk9fh9av6lgf2fp6e9cuiaf8&_ij_reload=RELOAD_ON_SAVE",
+            github: "https://github.com/NKWEATU/Quiz_App"
         }
     ];
 
