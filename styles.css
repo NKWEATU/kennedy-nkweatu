@@ -190,3 +190,24 @@ body.dark .project-card {
     background: #131a35;
     color: white;
 }
+
+/* ---------------------------
+   Fade-in Animation
+---------------------------- */
+.fade-before {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease-out;
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+/* Typing Effect Cursor */
+.hero-text p {
+    border-right: 3px solid #4da3ff;
+    white-space: nowrap;
+    overflow: hidden;
+}

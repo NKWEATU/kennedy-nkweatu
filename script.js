@@ -1,67 +1,78 @@
+// ----------------------
+// DARK MODE TOGGLE
+// ----------------------
+const toggleBtn = document.getElementById("dark-mode-toggle");
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+});
 
-    // Dark Mode Toggle
-    document.getElementById("dark-mode-toggle").addEventListener("click", function() {
-        document.body.classList.toggle("dark-mode");
+// ----------------------
+// SCROLL ANIMATIONS
+// (Fade-in effect on sections)
+// ----------------------
+const sections = document.querySelectorAll("section");
+
+const appearOptions = {
+    threshold: 0.2,
+    rootMargin: "0px 0px -50px 0px"
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("fade-in");
+        observer.unobserve(entry.target);
+    });
+}, appearOptions);
+
+sections.forEach(section => {
+    section.classList.add("fade-before");
+    appearOnScroll.observe(section);
+});
+
+// ----------------------
+// TYPING EFFECT ON HERO TEXT
+// ----------------------
+const typingText = document.querySelector(".hero-text p");
+const textContent = "A Software & Machine Learning Engineer building intelligent mobile, web, and desktop applications.";
+let index = 0;
+
+function typeEffect() {
+    if (index < textContent.length) {
+        typingText.innerHTML = textContent.substring(0, index + 1);
+        index++;
+        setTimeout(typeEffect, 25);
+    }
+}
+setTimeout(typeEffect, 800);
+
+// ----------------------
+// PROJECT CARD HOVER LIFT (extra animation)
+// ----------------------
+const cards = document.querySelectorAll(".project-card");
+
+cards.forEach(card => {
+    card.addEventListener("mouseenter", () => {
+        card.style.transform = "translateY(-10px)";
+        card.style.boxShadow = "0 15px 25px rgba(0,0,0,0.20)";
     });
 
-    // Smooth Scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+    card.addEventListener("mouseleave", () => {
+        card.style.transform = "translateY(0px)";
+        card.style.boxShadow = "0 8px 15px rgba(0,0,0,0.10)";
+    });
+});
+
+// ----------------------
+// SMOOTH SCROLL FOR NAV LINKS
+// ----------------------
+const navLinks = document.querySelectorAll("nav ul li a");
+
+navLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelector(link.getAttribute("href")).scrollIntoView({
+            behavior: "smooth"
         });
     });
-
-    // Contact Form Submission
-    document.getElementById("contact-form").addEventListener("submit", function(event) {
-        event.preventDefault();
-        document.getElementById("form-message").style.display = "block";
-        setTimeout(() => {
-            document.getElementById("form-message").style.display = "none";
-        }, 3000);
-        this.reset();
-    });
-
-    // Showcase Projects Dynamically
-    const projects = [
-            {
-            title: "Quiz App",
-            description: "This is a simple online quiz app.",
-            image: "",
-            liveDemo: "https://nkweatu.github.io/Quiz_App/",
-            github: "https://github.com/NKWEATU/Quiz_App"
-        },
-        {
-            title: "School Application Portal",
-            description: "This is a simple student web application that allows the registeration of new students into a database (mysql).",
-                    
-            image: "studentApplicationPortal.png",
-            liveDemo: "https://www.linkedin.com/feed/update/urn:li:activity:7315305093745037312/",
-            github: "https://github.com/NKWEATU/Web-based-student-management-system-project"
-        },
-        {
-            title: "Hotel Management System",
-            description: "This is a software that allows the daily tracking of the activities in a hotel.",
-            image: "savedStudents.png",
-            liveDemo: "https://www.linkedin.com/feed/update/urn:li:activity:7315353445169790977/",
-            github: "https://github.com/NKWEATU/Complete-Hotel-Management-System-project.-Using-Java-and-mysql"
-        }
-     
-    ];
-
-    const projectsContainer = document.getElementById("projects-container");
-
-    projects.forEach(proj => {
-        let projectHTML = `
-            <div class="project">
-                <img src="${proj.image}" alt="${proj.title}">
-                <h3>${proj.title}</h3>
-                <p>${proj.description}</p>
-                <a href="${proj.liveDemo}" target="_blank">Live Demo</a> |
-                <a href="${proj.github}" target="_blank">GitHub</a>
-            </div>
-        `;
-        projectsContainer.innerHTML += projectHTML;
-    });
+});
