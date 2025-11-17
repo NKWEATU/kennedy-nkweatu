@@ -1,99 +1,192 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    transition: background 0.5s, color 0.5s;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Header */
+body {
+    background: #f5f7ff;
+    color: #222;
+    transition: background 0.3s, color 0.3s;
+}
+
 header {
-    background: #333;
-    color: white;
-    padding: 15px;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #0a0f24;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 26px;
+    font-weight: bold;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+    display: flex;
+    gap: 20px;
 }
 
 nav ul li a {
-    color: white;
+    color: #fff;
     text-decoration: none;
+    transition: 0.3s;
+    font-size: 16px;
 }
 
-/* Sections */
-section {
-    padding: 50px;
+nav ul li a:hover {
+    color: #4da3ff;
+}
+
+#dark-mode-toggle {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* HERO SECTION */
+#hero {
+    padding: 60px 20px;
     text-align: center;
 }
 
-#hero {
-    background: #f4f4f4;
-    padding: 100px 20px;
-    font-size: 1.5em;
-}
-
-/* Projects */
-.project {
-    background: #ddd;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 8px;
-    transition: transform 0.3s;
-}
-
-.project:hover {
-    transform: scale(1.05);
-}
-
-/* Contact Form */
-form {
+.hero-content {
     display: flex;
     flex-direction: column;
-    max-width: 400px;
+    align-items: center;
+}
+
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #4da3ff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+}
+
+.hero-text h2 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.highlight {
+    color: #4da3ff;
+}
+
+.hero-text p {
+    max-width: 500px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* SECTIONS */
+section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #0a0f24;
+}
+
+/* PROJECTS GRID */
+#projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
+}
+
+.project-card {
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* CONTACT */
+#contact form {
+    max-width: 500px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-input, textarea, button {
-    margin: 10px 0;
-    padding: 10px;
-    width: 100%;
+#contact input,
+#contact textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
 
-button {
-    background: #333;
-    color: white;
+#contact button {
+    padding: 12px;
+    background: #0a0f24;
+    color: #fff;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background 0.3s;
+    font-size: 16px;
+    transition: 0.3s;
 }
 
-button:hover {
-    background: #555;
+#contact button:hover {
+    background: #4da3ff;
 }
 
-/* Dark Mode */
-.dark-mode {
-    background: #222;
+/* LINKS SECTION */
+#links ul {
+    list-style: none;
+    padding: 0;
+}
+
+#links ul li {
+    margin: 10px 0;
+}
+
+#links a {
+    color: #0a0f24;
+    font-size: 18px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+#links a:hover {
+    color: #4da3ff;
+}
+
+/* DARK MODE */
+body.dark {
+    background: #0a0f24;
     color: white;
 }
 
-.dark-mode header {
-    background: #111;
+body.dark section h2 {
+    color: #4da3ff;
 }
 
-.dark-mode .project {
-    background: #444;
-}
-
-.dark-mode button {
-    background: #555;
+body.dark .project-card {
+    background: #131a35;
+    color: white;
 }

@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
+
 <header>
     <h1>My Portfolio</h1>
     <nav>
         <ul>
+            <li><a href="#hero">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -20,25 +21,39 @@
     </nav>
 </header>
 
+<!-- HERO SECTION -->
 <section id="hero">
-    <h2>Welcome to My Portfolio</h2>
-    <p>I'm a Software & Machine learning Engineer, passionate about building great AI applications.</p>
+    <div class="hero-content">
+        <img src="images/myPics.jpg" alt="My Profile Picture" class="profile-img">
+        <div class="hero-text">
+            <h2>Hello, I'm <span class="highlight">Nkweatu Kennedy</span></h2>
+            <p>A Software & Machine Learning Engineer building intelligent mobile, web, and desktop applications.</p>
+        </div>
+    </div>
 </section>
 
+<!-- ABOUT SECTION -->
 <section id="about">
     <h2>About Me</h2>
-    <p>I am Nkweatu Kennedy, a Software/Machine learning Engineer 
-    <br> I build Mobile Apps, Desktop Apps and Web apps while integrating the concept of artificial intelligence.
-        <br>I am passionate about programming which gives me the
-        opportunity to bring my clients dream to life.
+    <p>
+        I am Nkweatu Kennedy, a Software/Machine Learning Engineer.
+        I build Mobile Apps, Desktop Apps, and Web Apps while integrating the power of Artificial Intelligence.
+        I am passionate about programming, and I enjoy bringing my clients' dreams to life through innovation and technology.
     </p>
 </section>
 
+<!-- PROJECTS SECTION -->
 <section id="projects">
     <h2>Projects</h2>
-    <div id="projects-container"></div>
+    <div id="projects-container">
+        <div class="project-card">AI Chatbot Application</div>
+        <div class="project-card">Vendor E-Commerce Platform</div>
+        <div class="project-card">Mobile Banking UI</div>
+        <div class="project-card">Credit Scoring ML Model</div>
+    </div>
 </section>
 
+<!-- CONTACT SECTION -->
 <section id="contact">
     <h2>Contact Me</h2>
     <form id="contact-form">
@@ -50,19 +65,20 @@
     <p id="form-message" style="display:none; color: green;">Message sent successfully!</p>
 </section>
 
-<script src="script.js"></script>
-<section>
-<p> You can send a mail directly to nkweatukennedy@gmail.com</p>
+<section class="email-section">
+    <p>You can send a mail directly to <strong>nkweatukennedy@gmail.com</strong></p>
 </section>
-    <section>
-       <h2 style="color: blue; text-align: center;">Links</h2>
-   <div style="text-align: center;">
-    <ul style="list-style: none; padding: 0;">
+
+<!-- LINKS SECTION -->
+<section id="links">
+    <h2>Links</h2>
+    <ul>
         <li><a href="https://github.com/NKWEATU" target="_blank">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/kennedy-nkweatu">LinkedIn</a></li>
-        <li><a href="https://www.youtube.com/@KENNEDYNKWEATU">Youtube</a></li>
+        <li><a href="https://www.linkedin.com/in/kennedy-nkweatu" target="_blank">LinkedIn</a></li>
+        <li><a href="https://www.youtube.com/@KENNEDYNKWEATU" target="_blank">YouTube</a></li>
     </ul>
-</div>
-    </section>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
