@@ -211,3 +211,48 @@ body.dark .project-card {
     white-space: nowrap;
     overflow: hidden;
 }
+/* Floating up/down animation + typing cursor (improved) */
+.hero-text p {
+  display: inline-block;            /* needed so transform affects only the text block */
+  border-right: 3px solid #4da3ff;  /* typing cursor */
+  white-space: nowrap;
+  overflow: hidden;
+  /* floating animation */
+  animation: floatY 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* slower cursor blink so it isn't too harsh */
+@keyframes blinkCursor {
+  0% { border-color: transparent; }
+  50% { border-color: #4da3ff; }
+  100% { border-color: transparent; }
+}
+.hero-text p {
+  animation-name: floatY, blinkCursor;
+  animation-duration: 4s, 1.2s;
+  animation-timing-function: ease-in-out, steps(1);
+  animation-iteration-count: infinite, infinite;
+}
+
+/* vertical float motion */
+@keyframes floatY {
+  0%   { transform: translateY(0px); }
+  25%  { transform: translateY(-6px); }
+  50%  { transform: translateY(0px); }
+  75%  { transform: translateY(6px); }
+  100% { transform: translateY(0px); }
+}
+
+/* smaller motion on narrow screens */
+@media (max-width: 600px) {
+  .hero-text p { animation-duration: 5s, 1.2s; }
+  @keyframes floatY {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-3px); }
+    100% { transform: translateY(0px); }
+  }
+}
+
+/* after typing finishes, remove the cursor (JS will add class 'typed') */
+.hero-text p.typed { border-right-color: transparent; animation-name: floatY; /* keep float only */ }

@@ -32,19 +32,26 @@ sections.forEach(section => {
 
 // ----------------------
 // TYPING EFFECT ON HERO TEXT
-// ----------------------
-const typingText = document.querySelector(".hero-text p");
-const textContent = "A Software & Machine Learning Engineer building intelligent mobile, web, and desktop applications.";
-let index = 0;
+// TYPING EFFECT (improved) + keep floating after finish
+const typingTextEl = document.querySelector(".hero-text p");
+const fullText = "A Software & Machine Learning Engineer building intelligent mobile, web, and desktop applications.";
+let i = 0;
+let typingSpeed = 25;
 
-function typeEffect() {
-    if (index < textContent.length) {
-        typingText.innerHTML = textContent.substring(0, index + 1);
-        index++;
-        setTimeout(typeEffect, 25);
-    }
+function typeAndFloat() {
+  if (i <= fullText.length) {
+    typingTextEl.textContent = fullText.substring(0, i);
+    i++;
+    setTimeout(typeAndFloat, typingSpeed);
+  } else {
+    // typing finished: mark element as 'typed' so CSS removes cursor animation
+    typingTextEl.classList.add('typed');
+    // ensure the floating animation remains: already applied in CSS
+  }
 }
-setTimeout(typeEffect, 800);
+// start typing after short delay
+setTimeout(typeAndFloat, 700);
+
 
 // ----------------------
 // PROJECT CARD HOVER LIFT (extra animation)
