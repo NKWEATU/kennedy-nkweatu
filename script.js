@@ -1,85 +1,107 @@
-// ----------------------
-// DARK MODE TOGGLE
-// ----------------------
+// ======================================================
+// DARK MODE
+// ======================================================
 const toggleBtn = document.getElementById("dark-mode-toggle");
+
+// Restore theme from localStorage
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+    toggleBtn.textContent = "☀️";
+}
+
 toggleBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark");
+
+    // Update button icon
+    if (document.body.classList.contains("dark")) {
+        toggleBtn.textContent = "☀️";
+        localStorage.setItem("theme", "dark");
+    } else {
+        toggleBtn.textContent = "🌙";
+        localStorage.setItem("theme", "light");
+    }
 });
 
-// ----------------------
-// SCROLL ANIMATIONS
-// (Fade-in effect on sections)
-// ----------------------
-const sections = document.querySelectorAll("section");
 
-const appearOptions = {
-    threshold: 0.2,
-    rootMargin: "0px 0px -50px 0px"
-};
+// ======================================================
+// FORM SUCCESS MESSAGE
+// ======================================================
+const form = document.getElementById("contact-form");
+const successMsg = document.getElementById("form-message");
 
-const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("fade-in");
-        observer.unobserve(entry.target);
-    });
-}, appearOptions);
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-sections.forEach(section => {
-    section.classList.add("fade-before");
-    appearOnScroll.observe(section);
+    successMsg.style.display = "block";
+    successMsg.style.opacity = "1";
+
+    form.reset();
+
+    // Hide message after 3 seconds
+    setTimeout(() => {
+        successMsg.style.opacity = "0";
+        setTimeout(() => {
+            successMsg.style.display = "none";
+        }, 500);
+    }, 3000);
 });
 
-// ----------------------
-// TYPING EFFECT ON HERO TEXT
-// TYPING EFFECT (improved) + keep floating after finish
-const typingTextEl = document.querySelector(".hero-text p");
-const fullText = "A Software & Machine Learning Engineer building intelligent mobile, web, and desktop applications.";
-let i = 0;
-let typingSpeed = 25;
 
-function typeAndFloat() {
-  if (i <= fullText.length) {
-    typingTextEl.textContent = fullText.substring(0, i);
-    i++;
-    setTimeout(typeAndFloat, typingSpeed);
-  } else {
-    // typing finished: mark element as 'typed' so CSS removes cursor animation
-    typingTextEl.classList.add('typed');
-    // ensure the floating animation remains: already applied in CSS
-  }
-}
-// start typing after short delay
-setTimeout(typeAndFloat, 700);
-
-
-// ----------------------
-// PROJECT CARD HOVER LIFT (extra animation)
-// ----------------------
-const cards = document.querySelectorAll(".project-card");
-
-cards.forEach(card => {
-    card.addEventListener("mouseenter", () => {
-        card.style.transform = "translateY(-10px)";
-        card.style.boxShadow = "0 15px 25px rgba(0,0,0,0.20)";
-    });
-
-    card.addEventListener("mouseleave", () => {
-        card.style.transform = "translateY(0px)";
-        card.style.boxShadow = "0 8px 15px rgba(0,0,0,0.10)";
-    });
-});
-
-// ----------------------
-// SMOOTH SCROLL FOR NAV LINKS
-// ----------------------
-const navLinks = document.querySelectorAll("nav ul li a");
-
-navLinks.forEach(link => {
-    link.addEventListener("click", (e) => {
-        e.preventDefault();
-        document.querySelector(link.getAttribute("href")).scrollIntoView({
-            behavior: "smooth"
+// ======================================================
+// SCROLL ANIMATION (fade in sections/cards)
+// ======================================================
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
         });
-    });
+    },
+    { threshold: 0.2 }
+);
+
+document.querySelectorAll("section, .project-card").forEach((el) => {
+    el.classList.add("hidden");
+    observer.observe(el);
 });
+
+
+// ======================================================
+// DARK MODE EXTRA STYLES
+// ======================================================
+const darkStyles = `
+    body.dark {
+        background: #111;
+        color: white;
+    }
+
+    body.dark header {
+        background: #222;
+    }
+
+    body.dark nav a {
+        color: white;
+    }
+
+    body.dark .project-card {
+        background: #222;
+        color: white;
+        border: 1px solid #444;
+    }
+
+    body.dark form input,
+    body.dark form textarea {
+        background: #222;
+        color: white;
+        border: 1px solid #555;
+    }
+
+    body.dark .email-section {
+        background: #000;
+    }
+`;
+
+const styleSheet = document.createElement("style");
+styleSheet.innerText = darkStyles;
+document.head.appendChild(styleSheet);
