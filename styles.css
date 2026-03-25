@@ -159,6 +159,8 @@ form button:hover {
     margin-top: 30px;
 }
 
+
+
 /* MOBILE RESPONSIVENESS */
 @media (max-width: 600px) {
 
@@ -253,6 +255,13 @@ form button:hover {
 }
 
 
+
+
+
+
+
+
+
 #gallery {
     padding: 40px;
     text-align: center;
@@ -287,4 +296,3 @@ form button:hover {
     font-size: 14px;
     font-weight: 500;
 }
-
