@@ -105,3 +105,33 @@ const darkStyles = `
 const styleSheet = document.createElement("style");
 styleSheet.innerText = darkStyles;
 document.head.appendChild(styleSheet);
+
+
+
+
+const text1 = "I am always ready to help you achieve your dreams in tech to the best of my capacity.";
+const text2 = "My niche is software engineering and machine learning.";
+
+let i = 0;
+let j = 0;
+
+function typeLine1() {
+    if (i < text1.length) {
+        document.getElementById("line1").innerHTML += text1.charAt(i);
+        i++;
+        setTimeout(typeLine1, 50);
+    } else {
+        setTimeout(typeLine2, 500);
+    }
+}
+
+function typeLine2() {
+    if (j < text2.length) {
+        document.getElementById("line2").innerHTML += text2.charAt(j);
+        j++;
+        setTimeout(typeLine2, 50);
+    }
+}
+
+// start animation when page loads
+window.onload = typeLine1;

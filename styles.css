@@ -219,49 +219,21 @@ form button:hover {
     transition: 0.8s ease-out;
 }
 
-/* ==== MODERN MARQUEE EFFECT ==== */
-.marquee-wrapper {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    margin: 20px 0;
+
+#line1, #line2 {
+    font-size: 18px;
 }
 
-.marquee {
+.cursor {
     display: inline-block;
-    white-space: nowrap;
-    animation: slide-left-right 15s linear infinite;
+    width: 10px;
+    background-color: black;
+    animation: blink 0.7s infinite;
 }
 
-.hero-text {
-    display: inline-block;
-    padding-right: 50px; /* spacing before repeating */
+@keyframes blink {
+    50% { opacity: 0; }
 }
-
-@keyframes slide-left-right {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-}
-@keyframes slide-left-right {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-}
-.marquee-wrapper:hover .marquee {
-    animation-play-state: paused;
-}
-
-
-
-
-
-
-
-
-
 #gallery {
     padding: 40px;
     text-align: center;
