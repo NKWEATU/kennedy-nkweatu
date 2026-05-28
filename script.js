@@ -110,7 +110,7 @@ document.head.appendChild(styleSheet);
 
 
 const text1 = "I am always ready to help you achieve your dreams in tech to the best of my capacity.";
-const text2 = "My niche is software engineering and machine learning.";
+const text2 = "My niche is software & DevOps engineering.";
 
 let i = 0;
 let j = 0;
