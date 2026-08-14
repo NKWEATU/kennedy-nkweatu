@@ -1,137 +1,233 @@
-// ======================================================
-// DARK MODE
-// ======================================================
-const toggleBtn = document.getElementById("dark-mode-toggle");
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
 
-// Restore theme from localStorage
-if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark");
-    toggleBtn.textContent = "☀️";
-}
+const menuToggle = document.getElementById("menu-toggle");
+const mainNav = document.getElementById("main-nav");
 
-toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
+if (menuToggle && mainNav) {
 
-    // Update button icon
-    if (document.body.classList.contains("dark")) {
-        toggleBtn.textContent = "☀️";
-        localStorage.setItem("theme", "dark");
-    } else {
-        toggleBtn.textContent = "🌙";
-        localStorage.setItem("theme", "light");
-    }
-});
+    menuToggle.addEventListener("click", () => {
+
+        mainNav.classList.toggle("active");
+
+    });
 
 
-// ======================================================
-// FORM SUCCESS MESSAGE
-// ======================================================
-const form = document.getElementById("contact-form");
-const successMsg = document.getElementById("form-message");
+    document.querySelectorAll("#main-nav a").forEach(link => {
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
+        link.addEventListener("click", () => {
 
-    successMsg.style.display = "block";
-    successMsg.style.opacity = "1";
+            mainNav.classList.remove("active");
 
-    form.reset();
-
-    // Hide message after 3 seconds
-    setTimeout(() => {
-        successMsg.style.opacity = "0";
-        setTimeout(() => {
-            successMsg.style.display = "none";
-        }, 500);
-    }, 3000);
-});
-
-
-// ======================================================
-// SCROLL ANIMATION (fade in sections/cards)
-// ======================================================
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-            }
         });
-    },
-    { threshold: 0.2 }
-);
 
-document.querySelectorAll("section, .project-card").forEach((el) => {
-    el.classList.add("hidden");
-    observer.observe(el);
+    });
+
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+const darkModeToggle =
+    document.getElementById("dark-mode-toggle");
+
+
+if (darkModeToggle) {
+
+    darkModeToggle.addEventListener("click", () => {
+
+        document.body.classList.toggle("dark-mode");
+
+
+        if (
+            document.body.classList.contains("dark-mode")
+        ) {
+
+            darkModeToggle.textContent = "☀️";
+
+            localStorage.setItem(
+                "theme",
+                "dark"
+            );
+
+        } else {
+
+            darkModeToggle.textContent = "🌙";
+
+            localStorage.setItem(
+                "theme",
+                "light"
+            );
+
+        }
+
+    });
+
+
+    /* Restore previous theme */
+
+    const savedTheme =
+        localStorage.getItem("theme");
+
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add("dark-mode");
+
+        darkModeToggle.textContent = "☀️";
+
+    }
+
+}
+
+
+/* =========================================================
+   HERO TYPING EFFECT
+========================================================= */
+
+const line1 = document.getElementById("line1");
+const line2 = document.getElementById("line2");
+
+
+const text1 =
+    "I build Mobile Apps, Desktop Apps, and Web Apps.";
+
+
+const text2 =
+    "I integrate Artificial Intelligence to create practical, innovative digital solutions.";
+
+
+function typeText(element, text, speed, callback) {
+
+    if (!element) return;
+
+    let index = 0;
+
+    function type() {
+
+        if (index < text.length) {
+
+            element.textContent += text.charAt(index);
+
+            index++;
+
+            setTimeout(type, speed);
+
+        } else if (callback) {
+
+            callback();
+
+        }
+
+    }
+
+    type();
+
+}
+
+
+if (line1 && line2) {
+
+    typeText(
+        line1,
+        text1,
+        35,
+        () => {
+
+            typeText(
+                line2,
+                text2,
+                30
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+const contactForm =
+    document.getElementById("contact-form");
+
+const formMessage =
+    document.getElementById("form-message");
+
+
+if (contactForm) {
+
+    contactForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            formMessage.style.display = "block";
+
+
+            contactForm.reset();
+
+
+            setTimeout(() => {
+
+                formMessage.style.display = "none";
+
+            }, 5000);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SCROLL REVEAL ANIMATION
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(
+        ".project-card, .gallery-item, .about-highlight, .contact-form"
+    );
+
+
+const revealObserver =
+    new IntersectionObserver(
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+revealElements.forEach(element => {
+
+    element.classList.add("reveal");
+
+    revealObserver.observe(element);
+
 });
-
-
-// ======================================================
-// DARK MODE EXTRA STYLES
-// ======================================================
-const darkStyles = `
-    body.dark {
-        background: #111;
-        color: white;
-    }
-
-    body.dark header {
-        background: #222;
-    }
-
-    body.dark nav a {
-        color: white;
-    }
-
-    body.dark .project-card {
-        background: #222;
-        color: white;
-        border: 1px solid #444;
-    }
-
-    body.dark form input,
-    body.dark form textarea {
-        background: #222;
-        color: white;
-        border: 1px solid #555;
-    }
-
-    body.dark .email-section {
-        background: #000;
-    }
-`;
-
-const styleSheet = document.createElement("style");
-styleSheet.innerText = darkStyles;
-document.head.appendChild(styleSheet);
-
-
-
-
-const text1 = "I am always ready to help you achieve your dreams in tech to the best of my capacity.";
-const text2 = "My niche is Software Engineering ||  DevOps Engineering.";
-
-let i = 0;
-let j = 0;
-
-function typeLine1() {
-    if (i < text1.length) {
-        document.getElementById("line1").innerHTML += text1.charAt(i);
-        i++;
-        setTimeout(typeLine1, 50);
-    } else {
-        setTimeout(typeLine2, 500);
-    }
-}
-
-function typeLine2() {
-    if (j < text2.length) {
-        document.getElementById("line2").innerHTML += text2.charAt(j);
-        j++;
-        setTimeout(typeLine2, 50);
-    }
-}
-
-// start animation when page loads
-window.onload = typeLine1;
