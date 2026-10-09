@@ -6,7 +6,7 @@
 // Replace these placeholders with your existing EmailJS keys.
 const EMAILJS_PUBLIC_KEY = "krz8bAdNl6MKHtxeI";
 const EMAILJS_SERVICE_ID = "service_1pncd8t";
-const EMAILJS_TEMPLATE_ID = "template_0lqppph";
+const EMAILJS_TEMPLATE_ID = "template_rho4cxo";
 
 // Initialize EmailJS only when the library is loaded.
 if (typeof emailjs !== "undefined") {
